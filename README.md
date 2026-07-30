@@ -1,9 +1,9 @@
 # Michael Blauberg
 
 Final-year software engineering (Hons) student at the University of Queensland,
-Brisbane. I work across AI/ML and system architecture: designing systems, making
-the key architectural decisions, and driving agentic engineering with LLM agents
-and governed multi-agent workflows to build working products.
+Brisbane. I build AI/ML systems and the architecture around them — most
+recently agentic engineering: LLM agents in governed, reviewable multi-agent
+workflows, doing real product work.
 
 ## Selected work
 
@@ -12,7 +12,7 @@ and governed multi-agent workflows to build working products.
   for a governed agentic SDLC.
 - [RAG-as-a-Service](https://github.com/mblauberg/rag-as-a-service): document
   Q&A service with hybrid retrieval, reranking and source citations. FastAPI,
-  React, containerised, with a Kubernetes deployment surface.
+  React, containerised, with Kubernetes manifests.
 - GlassChain: read-only blockchain wallet intelligence system from UQ's
   software architecture course. TypeScript monorepo, CI, load testing, deployed
   on AWS. My focus was the microkernel plugin architecture. (Team project,
@@ -23,7 +23,7 @@ and governed multi-agent workflows to build working products.
   private repo.)
 - [My Boardgame Collection](https://github.com/mblauberg/my-boardgame-collection):
   full-stack product with React 19, TypeScript, Supabase and passkey (WebAuthn)
-  authentication, deployed on Vercel.
+  authentication — [live on Vercel](https://my-boardgame-collection.vercel.app).
 - [Beast Breakout](https://github.com/UQcsse3200/2024-studio-1): 19 merged pull
   requests into a 40+ student Java/libGDX game, covering NPC and boss AI,
   effects, refactoring and tests. (Team project; my contribution only.)
