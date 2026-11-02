@@ -38,7 +38,7 @@ command, so moving work onto a newer model doesn't change how you work.
   specific tools into every harness, so agents reuse the same practices across
   projects.
 
-It's written in Rust, MIT-licensed and at v1.4.2. I use it day to day,
+It's written in Rust and MIT-licensed. I use it day to day,
 including to build Provenant itself.
 
 ## Selected projects
