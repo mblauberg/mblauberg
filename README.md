@@ -1,87 +1,87 @@
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-  <img src="assets/banner-light.svg" width="100%" alt="Michael Blauberg: Technical Co-founder and Lead Engineer at App Stack. Agentic engineering.">
+  <img src="assets/banner-light.svg" width="100%" alt="Michael Blauberg, Technical Co-founder and Lead Engineer at App Stack">
 </picture>
 
-I'm the Technical Co-founder and Lead Engineer of App Stack Pty Ltd, where I lead
-development of [Sealle](https://sealle.com.au), practice management software for
-accounting firms. I'm based in Brisbane.
+I'm Technical Co-founder and Lead Engineer at App Stack Pty Ltd in Brisbane. I
+lead development of [Sealle](https://sealle.com.au), practice management
+software for accounting firms, and work across the whole product: frontend,
+backend, data, cloud infrastructure and the delivery process around them.
 
-Most of my engineering now runs through coding agents. My job is the system
-around them: the specs, tests, review gates and routing that let agents do real
-product work. My personal harness for this is
-[Provenant](https://github.com/mblauberg/provenant).
-
-## How I work with agents
-
-- **Spec first.** Work starts with acceptance criteria and a risk tier before
-  an agent writes code.
-- **Isolated writers.** Each agent writes in its own git worktree, one writer per
-  worktree, sandboxed to the paths it was given.
-- **Review scales with risk.** Routine changes need passing checks. Larger
-  changes get independent review, by a different model family from the author
-  where one is available, and the riskiest need my sign-off before merge.
-- **Right model for the task.** Work is routed by difficulty and remaining quota
-  across Claude, Codex and other providers.
-- **Knowledge in the repo.** Lasting decisions go in `AGENTS.md`, ADRs and
-  runbooks, where the next agent will find them, not in chat history.
+I'm quick to pick up new tools where AI has changed how software gets built.
+Coding agents are the biggest of those changes. They now write much of my code,
+so a lot of my effort goes into what surrounds them: clear specs, fast tests,
+review that scales with risk, and routing each task to a model that suits it.
+That's why I built Provenant.
 
 ## Provenant
 
-[**Provenant**](https://github.com/mblauberg/provenant) is my open-source
-(MIT) agent harness. From a Claude Code, Codex, Cursor, Agy or OpenCode session,
-it hands tasks to other agents. For each task it picks a model, checks account
-quota, runs the agent in a sandboxed worktree and keeps a full record of the run.
+[**Provenant**](https://github.com/mblauberg/provenant) connects the coding
+agents you already use so they can work together. It plugs into Claude Code,
+Codex, Cursor, Agy and OpenCode, and lets a session in any of them hand tasks
+to agents running on the others. There's no fixed pipeline to define up front:
+the session you're talking to decides what to split up, which model suits each
+piece and how much review a change needs. Routing pools change with one
+command, so moving work onto a newer model doesn't change how you work.
 
-- 20 workflow skills (scope, implement, diagnose, code review, release and more)
-  and 8 library skills.
-- Presets for fan-out research, review councils, generator–evaluator loops and
-  CI-gated delivery.
-- Fabric, a layer for passing messages, tasks and claims between agent sessions,
-  including on other machines.
-- Written in Rust and released under semantic versioning (currently v1.4.2).
-  I develop it using Provenant itself.
+- **Runs on your subscriptions.** It drives each provider's own CLI with your
+  existing sign-in, so work draws on the plans you already pay for rather than
+  per-token API billing. It tracks quota across several accounts and won't
+  start a task on one that's run out.
+- **Runs agents side by side safely.** Each task runs in a macOS sandbox that
+  can write only to its own git worktree. Every run is recorded with its model,
+  account, cost and output.
+- **Connects sessions.** Fabric lets agent sessions, on one machine or several
+  over SSH, send messages, share tasks and claim work.
+- **Gives agents a shared playbook.** It installs 20 workflow skills (scoping,
+  implementing, debugging, code review, releasing and more) and 8 skills for
+  specific tools into every harness, so agents reuse the same practices across
+  projects.
 
-## Selected work
+It's written in Rust, MIT-licensed and at v1.4.2. I use it day to day,
+including to build Provenant itself.
 
-- [**PureMouse**](https://github.com/mblauberg/PureMouse): a native, offline
-  alternative to Logi Options+ on macOS. It talks HID++ directly to Logitech MX
-  mice and handles button mapping, gestures, smooth scrolling, DPI and per-app
-  profiles in under 20 MB of memory. Built in Swift 6 with no third-party
+## Selected projects
+
+- [**PureMouse**](https://github.com/mblauberg/PureMouse): a lightweight,
+  native replacement for Logi Options+ on macOS. It talks to Logitech MX mice
+  directly over HID++ for button mapping, gestures, smooth scrolling, DPI and
+  per-app settings, in under 20 MB of memory. Swift 6, with no third-party
   dependencies.
-- [**RAG-as-a-Service**](https://github.com/mblauberg/rag-as-a-service):
-  answers questions about uploaded documents and cites its sources. Retrieval
-  combines Postgres keyword search with Qdrant vector search, merges the results
-  with reciprocal rank fusion and reranks them with a cross-encoder. It runs as
-  containerised FastAPI and React services, with Kubernetes manifests.
+- [**RAG-as-a-Service**](https://github.com/mblauberg/rag-as-a-service): upload
+  documents, ask questions about them and get answers that cite their sources.
+  It combines Postgres keyword search with Qdrant vector search, merges the
+  results with reciprocal rank fusion and reranks them with a cross-encoder.
+  FastAPI and React services, containerised, with Kubernetes manifests.
 - [**My Boardgame Collection**](https://github.com/mblauberg/my-boardgame-collection):
-  a full-stack app built with React 19, TypeScript and Supabase. It has passkey
-  sign-in, row-level security and BoardGameGeek integration, and is
-  [live on Vercel](https://my-boardgame-collection.vercel.app).
+  a shared board game catalogue with personal libraries and curated shelves
+  for finding games. React 19, TypeScript and Supabase, with passkey sign-in,
+  row-level security and BoardGameGeek lookups. [Live on Vercel](https://my-boardgame-collection.vercel.app).
 - [**Table tennis stroke classification**](https://github.com/mblauberg/table-tennis-ml-classification):
-  classifies strokes from IMU sensor data. Train and test sets are split by
-  player so no player's data leaks between them. The tuned random forest
-  reaches a macro F1 of 0.957 on held-out players.
+  classifies strokes from 6-axis IMU sensor data. Train and test sets are split
+  by player, so no one appears in both, and the tuned random forest scores
+  0.957 macro F1 on unseen players.
 
-### Earlier team projects
+### Team projects
 
-- **GlassChain**: a read-only blockchain wallet intelligence system. It is a
-  TypeScript monorepo with CI and load testing, deployed on AWS. I designed its
-  microkernel plugin architecture. (Private repo.)
-- **Nova Edge**: an underwater glider simulator in Unreal Engine (C++), built
-  for Flying Fish Technologies. I built the physics: hydrodynamics,
-  PID-controlled attitude and spring-damper cable towing. (Private repo.)
+- **GlassChain**: a read-only blockchain wallet intelligence system, built as a
+  TypeScript monorepo with CI and load testing and deployed on AWS. I designed
+  its microkernel plugin architecture. (Private repo.)
+- **Nova Edge**: an underwater glider simulator in Unreal Engine (C++) for
+  Flying Fish Technologies. I built the physics: hydrodynamics, PID-controlled
+  attitude and spring-damper cable towing. (Private repo.)
 - [**Beast Breakout**](https://github.com/UQcsse3200/2024-studio-1): a Java and
   libGDX game built by more than 40 developers. I merged 19 pull requests
   covering NPC and boss AI, effects, refactoring and tests.
 
-## Tools I reach for
+## Tools I use
 
-Rust · TypeScript · React · TanStack · Swift (macOS) · Python · PostgreSQL ·
+TypeScript · React · TanStack · Rust · Swift · Python · PostgreSQL · Terraform ·
 AWS · Cloudflare · Claude Code · Codex
 
-I choose languages with strict types and fast compilers and test runners. They
-give agents quick, clear feedback when something is wrong.
+I pick tools to suit the job and favour strict types and fast test runners,
+because agents correct their own mistakes sooner when the compiler and tests
+catch them.
 
 ---
 
