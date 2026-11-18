@@ -12,30 +12,26 @@ I'm quick to pick up new tools where AI has changed how software gets built.
 Coding agents are the biggest of those changes. They now write much of my code,
 so a lot of my effort goes into what surrounds them: clear specs, fast tests,
 review that scales with risk, and routing each task to a model that suits it.
-That's why I built Provenant.
 
 ## Provenant
 
 [**Provenant**](https://github.com/mblauberg/provenant) connects the coding
-agents you already use so they can work together. It plugs into Claude Code,
+agent providers I use so they can work together. It plugs into Claude Code,
 Codex, Cursor, Agy and OpenCode, and lets a session in any of them hand tasks
-to agents running on the others. There's no fixed pipeline to define up front:
-the session you're talking to decides what to split up, which model suits each
+to agents running on the others. There's no fixed deterministic pipeline to define:
+the working session decides what to split up, which model suits each
 piece and how much review a change needs. Routing pools change with one
-command, so moving work onto a newer model doesn't change how you work.
+command, so moving work onto a newer model doesn't change work.
 
-- **Runs on your subscriptions.** It drives each provider's own CLI with your
-  existing sign-in, so work draws on the plans you already pay for rather than
+- **Runs on subscriptions.** It drives each provider's own CLI with your
+  existing sign-in, so work draws on the plans rather than
   per-token API billing. It tracks quota across several accounts and won't
   start a task on one that's run out.
-- **Runs agents side by side safely.** Each task runs in a macOS sandbox that
-  can write only to its own git worktree. Every run is recorded with its model,
-  account, cost and output.
 - **Connects sessions.** Fabric lets agent sessions, on one machine or several
   over SSH, send messages, share tasks and claim work.
-- **Gives agents a shared playbook.** It installs 20 workflow skills (scoping,
-  implementing, debugging, code review, releasing and more) and 8 skills for
-  specific tools into every harness, so agents reuse the same practices across
+- **Gives agents a shared playbook.** It installs workflow skills (scoping,
+  implementing, debugging, code review, releasing and more) and other useful skills 
+  for specific tools into every harness, so agents reuse the same practices across
   projects.
 
 It's written in Rust and MIT-licensed. I use it day to day,
